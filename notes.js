@@ -22,6 +22,16 @@ var fetchNotes = () => {
 
 /**
  * 
+ * @param {string} notes
+ * 
+ * @description     Save array to file 
+ */
+var saveNots = (notes) => {
+    fs.writeFileSync(fileName, JSON.stringify(notes));
+}
+
+/**
+ * 
  * @param {string} title 
  * @param {string} body 
  * 
@@ -64,7 +74,15 @@ var removeNote = (title) => {
     }
 };
 
+/** 
+ * @description     Method simply get all notes from json file.
+ */
+var getAllNotes = () => {
+    return fetchNotes();
+};
+
 module.exports = {
     addNote,
+    getAllNotes,
     removeNote
 };

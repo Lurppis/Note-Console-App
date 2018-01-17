@@ -29,6 +29,15 @@ if (arrayContains(command, commands)) {
                 console.log(`Could not found "${argv.title}".`)
             }
             break;
+        case commands[2]:
+            var noteList = notes.getAllNotes();
+            if (noteList) {
+                noteList.forEach(element => {
+                    console.log(element.title);
+                    console.log("---");
+                });
+            }
+            break;
         default:
             console.log("Command unknown: " + argv._[0]);
             break;
