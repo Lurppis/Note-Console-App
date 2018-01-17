@@ -21,12 +21,41 @@
 
 ## Installation
 
-> Not ready yet.
+```
+  npm init
+```
 
 ## Running
 
-> Not ready yet.
->Will be added in the nearest future.
+> Run help method for app program
+``` npm
+  node app.js --help
+```
+```
+Commands:
+  app.js add     Add a new note
+  app.js remove  Remove the note
+  app.js list    List all notes
+  app.js read    Read specific note
+
+Options:
+  --version  Pokaż numer wersji                                        [boolean]
+  --help     Pokaż pomoc                                               [boolean]
+```
+
+> Example run help method for add command
+```
+app.js add
+
+Add a new note
+
+Options:
+  --version    Pokaż numer wersji                                       [boolean]
+  --help       Pokaż pomoc                                              [boolean]
+  --title, -t  Title of note                                            [require]
+  --body, -b   Body of note 
+```
+
 
 
 ## Built With
