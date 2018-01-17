@@ -45,6 +45,10 @@ Options:
 
 > Example: Run help method for add command
 ```
+  node app.js add --help
+```
+
+```
 app.js add
 
 Add a new note
