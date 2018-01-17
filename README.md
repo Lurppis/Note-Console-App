@@ -43,7 +43,7 @@ Options:
   --help     Pokaż pomoc                                               [boolean]
 ```
 
-> Example run help method for add command
+> Example: Run help method for add command
 ```
 app.js add
 
@@ -56,7 +56,10 @@ Options:
   --body, -b   Body of note 
 ```
 
-
+> Example: Add note to notes list
+```
+node app.js add -t Title -b "Body content"
+```
 
 ## Built With
 * [Node.js](https://nodejs.org/api/documentation.html) -The fs module provides an API for interacting with the file system.
