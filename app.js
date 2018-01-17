@@ -20,6 +20,15 @@ if (arrayContains(command, commands)) {
                 console.log('Note title taken! Title should be unique.')
             }
             break;
+        case commands[1]:
+            var note = notes.removeNote(argv.title);
+            if (note) {
+                console.log(`Note "${note.title}" removed!`);
+                console.log("---");
+            } else {
+                console.log(`Could not found "${argv.title}".`)
+            }
+            break;
         default:
             console.log("Command unknown: " + argv._[0]);
             break;
