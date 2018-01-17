@@ -32,6 +32,17 @@ var saveNots = (notes) => {
 
 /**
  * 
+ * @param {string} title
+ * 
+ * @description     Method search for title index if doesnt exist return -1
+ * @returns {number}
+ */
+var indexOfSearchedNote = (title) => {
+    return notes.findIndex(i => i.title === title);
+}
+
+/**
+ * 
  * @param {string} title 
  * @param {string} body 
  * 
@@ -58,8 +69,6 @@ var addNote = (title, body) => {
 /**
  * 
  * @param {string} title 
- * 
- * 
  * @description Method simply search for note in json file and remove if exist.
  */
 var removeNote = (title) => {
@@ -81,8 +90,23 @@ var getAllNotes = () => {
     return fetchNotes();
 };
 
+/**
+ * 
+ * @param {string} title 
+ * 
+ * @description     Method simply read json file search for title and log body.
+ */
+var getNote = (title) => {
+    var notes = fetchNotes();
+    var titleIndexOf = notes.findIndex(i => i.title === title);
+    if (titleIndexOf > -1) {
+        return notes[titleIndexOf];
+    }
+};
+
 module.exports = {
     addNote,
     getAllNotes,
+    getNote,
     removeNote
 };

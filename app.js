@@ -38,6 +38,13 @@ if (arrayContains(command, commands)) {
                 });
             }
             break;
+        case commands[3]:
+            var note = notes.getNote(argv.title);
+            if (note) {
+                console.log(`Title: "${note.title}"`);
+                console.log(`Body: ${note.body}`);
+            }
+            break;
         default:
             console.log("Command unknown: " + argv._[0]);
             break;
