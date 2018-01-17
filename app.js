@@ -1,4 +1,27 @@
-const argv = require('yargs').argv;
+const titleOption = {
+    describe: 'Title of note',
+    demand: true,
+    alias: 't'
+};
+const bodyOption = {
+    describe: 'Body of note',
+    demand: true,
+    alias: 'b'
+};
+
+const argv = require('yargs')
+    .command('add', "Add a new note", {
+        title: titleOption,
+        body: bodyOption
+    })
+    .command('remove', 'Remove the note', {
+        title: titleOption
+    })
+    .command('list', 'List all notes')
+    .command('read', 'Read specific note', {
+        title: titleOption
+    })
+    .help().argv;
 const _ = require('lodash');
 const notes = require('./notes.js');
 const commands = ['add', 'remove', 'list', 'read'];
@@ -24,18 +47,19 @@ if (arrayContains(command, commands)) {
             var note = notes.removeNote(argv.title);
             if (note) {
                 console.log(`Note "${note.title}" removed!`);
-                console.log("---");
             } else {
                 console.log(`Could not found "${argv.title}".`)
             }
             break;
         case commands[2]:
             var noteList = notes.getAllNotes();
-            if (noteList) {
+            if (noteList.length > 0) {
                 noteList.forEach(element => {
-                    console.log(element.title);
+                    console.log(`Title: ${element.title}`);
                     console.log("---");
                 });
+            } else {
+                console.log("List of notes is empty.")
             }
             break;
         case commands[3]:
